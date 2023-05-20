@@ -2,13 +2,10 @@ import React from 'react';
 import './Homepage.scss';
 import Directory from '../../components/directory/directory';
 
-function Homepage() {
-  return (
-    <div className="homepage">
-      <h1>Homepage</h1>
-      <Directory />
-    </div>
-  );
-}
+const HomePage = () => (
+  <div className='homepage'>
+    <Directory />
+  </div>
+);
 
-export default Homepage;
+export default HomePage;

@@ -1,5 +1,5 @@
 import React from "react";
-import shopData from "./shopData";
+import shopData from "./shopData.js";
 import CollectionPreview from "../../components/collection-preview/collection-preview";
 
 class ShopPage extends React.Component{
@@ -18,7 +18,7 @@ class ShopPage extends React.Component{
                     <CollectionPreview key={id} {...otherprops}/>
                 ))}
             </div>
-        )
+        );
     }
 }
 export default ShopPage; 

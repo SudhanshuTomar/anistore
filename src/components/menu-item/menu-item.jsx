@@ -1,19 +1,24 @@
 import React from "react";
 import './menu-item.scss'
-import { withRouter } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Menuitem({title,id,imageUrl,size,history,linkUrl,match}) {
+const MenuItem = ({title,imageUrl,size,history,linkUrl,match}) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
-
-      <div className = "background-image" style = {{
-        backgroundImage: `url(${imageUrl})`}}/>
-        <div className="content">
-          <div className="title">{title.toUpperCase()}</div>
-          <div className="subtitle">Shop Now</div>
-        </div>
+    <div className={`${size} menu-item`} onClick={() => navigate(linkUrl)}>
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${imageUrl})`
+        }}
+      />
+      <Link to={linkUrl} className="content">
+        <h1 className="title">{title.toUpperCase()}</h1>
+        <span className="subtitle">SHOP NOW</span>
+      </Link>
     </div>
   );
 }
-// withRouter() is higher order functions that takes in a component and returns a super component which has access to history api and router props
-export default withRouter(Menuitem);
+
+export default MenuItem;

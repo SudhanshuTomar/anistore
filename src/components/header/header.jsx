@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 
 import {Link} from 'react-router-dom';
+import { auth } from "../../firebase/firebase";
 import {ReactComponent as Logo} from '../../assets/crown.svg';
 import './header.scss';
-import { auth } from "../../firebase/firebase";
+
 
 const Header = ({currentUser}) => (
     <div className="header">
@@ -12,10 +13,10 @@ const Header = ({currentUser}) => (
         </Link>
         <div className="options">
             <Link className="option" to="/shop"> 
-            SHOP
+                SHOP
             </Link>
-            <Link className="option" to="/contact"> 
-            Contact
+            <Link className="option" to="/shop"> 
+                Contact
             </Link>
             {currentUser?
                 (<div className="option" onClick={() => auth.signOut()}>
